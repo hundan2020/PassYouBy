@@ -1,5 +1,4 @@
-
-let EncryptIdentify = {
+var EncryptIdentify = {
     /* 代码参考了 https://github.com/psypanda/hashID/blob/master/hashid.py
     但是显然我能做的比他更好，他并没有考虑到大小写问题
     但是我想了一下，这里是加密/hash，不是编码，似乎所有的加密/hash类型都不需要考虑大小写，只有编码才需要

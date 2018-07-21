@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>Pass You By</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
 	<!-- Thanks to 
@@ -36,20 +37,20 @@
     <script src="js/popper.min.js"></script>
     <script src="js/tether.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
-    <script src="js/scripts.js"></script>
+    <script src="js/encrypt.js"></script>
     <script>
-    	$(function(){
-    		let showType = function(type){
+    	$(function() {
+    		let showType = function(type) {
     			let typeNode = $("#show-type").append("<span class=\"badge badge-primary ml-2 mt-2\">" + type + "</span>");
     		}
-    		let clearType = function(){
+    		let clearType = function() {
     			$("#show-type").empty();
     		}
-    		$("#find").click(function(){
+    		$("#find").click(function() {
     			clearType();
-    			let passMe = $("#pass-me").val();
+    			let passMe = $("#pass-me").val().trim();
     			let type = EncryptIdentify.identify(passMe);
-    			for(let n of type){
+    			for(let n of type) {
     				showType(n.name);
     			}
     			// console.log(type);

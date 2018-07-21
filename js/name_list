@@ -1,0 +1,272 @@
+CRC-16
+CRC-16-CCITT
+FCS-16
+Adler-32
+CRC-32B
+FCS-32
+GHash-32-3
+GHash-32-5
+FNV-132
+Fletcher-32
+Joaat
+ELF-32
+XOR-32
+CRC-24
+CRC-32
+Eggdrop IRC Bot
+DES(Unix)
+Traditional DES
+DEScrypt
+MySQL323
+DES(Oracle)
+Half MD5
+Oracle 7-10g
+FNV-164
+CRC-64
+Cisco-PIX(MD5)
+Lotus Notes/Domino 6
+BSDi Crypt
+CRC-96(ZIP)
+Crypt16
+MD2
+MD5
+MD4
+Double MD5
+LM
+RIPEMD-128
+Haval-128
+Tiger-128
+Skein-256(128)
+Skein-512(128)
+Lotus Notes/Domino 5
+Skype
+ZipMonster
+PrestaShop
+md5(md5(md5($pass)))
+md5(strtoupper(md5($pass)))
+md5(sha1($pass))
+md5($pass.$salt)
+md5($salt.$pass)
+md5(unicode($pass).$salt)
+md5($salt.unicode($pass))
+HMAC-MD5 (key = $pass)
+HMAC-MD5 (key = $salt)
+md5(md5($salt).$pass)
+md5($salt.md5($pass))
+md5($pass.md5($salt))
+md5($salt.$pass.$salt)
+md5(md5($pass).md5($salt))
+md5($salt.md5($salt.$pass))
+md5($salt.md5($pass.$salt))
+md5($username.0.$pass)
+Snefru-128
+NTLM
+Domain Cached Credentials
+Domain Cached Credentials 2
+SHA-1(Base64)
+Netscape LDAP SHA
+MD5 Crypt
+Cisco-IOS(MD5)
+FreeBSD MD5
+Lineage II C4
+phpBB v3.x
+Wordpress v2.6.0/2.6.1
+PHPass' Portable Hash
+Wordpress ≥ v2.6.2
+Joomla ≥ v2.5.18
+PHPass' Portable Hash
+osCommerce
+xt:Commerce
+MD5(APR)
+Apache MD5
+md5apr1
+AIX(smd5)
+WebEdition CMS
+IP.Board ≥ v2+
+MyBB ≥ v1.2+
+CryptoCurrency(Adress)
+SHA-1
+Double SHA-1
+RIPEMD-160
+Haval-160
+Tiger-160
+HAS-160
+LinkedIn
+Skein-256(160)
+Skein-512(160)
+MangosWeb Enhanced CMS
+sha1(sha1(sha1($pass)))
+sha1(md5($pass))
+sha1($pass.$salt)
+sha1($salt.$pass)
+sha1(unicode($pass).$salt)
+sha1($salt.unicode($pass))
+HMAC-SHA1 (key = $pass)
+HMAC-SHA1 (key = $salt)
+sha1($salt.$pass.$salt)
+MySQL5.x
+MySQL4.1
+Cisco-IOS(SHA-256)
+SSHA-1(Base64)
+Netscape LDAP SSHA
+nsldaps
+Fortigate(FortiOS)
+Haval-192
+Tiger-192
+SHA-1(Oracle)
+OSX v10.4
+OSX v10.5
+OSX v10.6
+Palshop CMS
+CryptoCurrency(PrivateKey)
+AIX(ssha1)
+MSSQL(2005)
+MSSQL(2008)
+Sun MD5 Crypt
+SHA-224
+Haval-224
+SHA3-224
+Skein-256(224)
+Skein-512(224)
+Blowfish(OpenBSD)
+Woltlab Burning Board 4.x
+bcrypt
+Android PIN
+Oracle 11g/12c
+bcrypt(SHA-256)
+vBulletin < v3.8.5
+vBulletin ≥ v3.8.5
+Snefru-256
+SHA-256
+RIPEMD-256
+Haval-256
+GOST R 34.11-94
+GOST CryptoPro S-Box
+SHA3-256
+Skein-256
+Skein-512(256)
+Ventrilo
+sha256($pass.$salt)
+sha256($salt.$pass)
+sha256(unicode($pass).$salt)
+sha256($salt.unicode($pass))
+HMAC-SHA256 (key = $pass)
+HMAC-SHA256 (key = $salt)
+Joomla < v2.5.18
+SAM(LM_Hash:NT_Hash)
+MD5(Chap)
+iSCSI CHAP Authentication
+EPiServer 6.x < v4
+AIX(ssha256)
+RIPEMD-320
+EPiServer 6.x ≥ v4
+MSSQL(2000)
+SHA-384
+SHA3-384
+Skein-512(384)
+Skein-1024(384)
+SSHA-512(Base64)
+LDAP(SSHA-512)
+AIX(ssha512)
+SHA-512
+Whirlpool
+Salsa10
+Salsa20
+SHA3-512
+Skein-512
+Skein-1024(512)
+sha512($pass.$salt)
+sha512($salt.$pass)
+sha512(unicode($pass).$salt)
+sha512($salt.unicode($pass))
+HMAC-SHA512 (key = $pass)
+HMAC-SHA512 (key = $salt)
+OSX v10.7
+MSSQL(2012)
+MSSQL(2014)
+OSX v10.8
+OSX v10.9
+Skein-1024
+GRUB 2
+Django(SHA-1)
+Citrix Netscaler
+Drupal > v7.x
+SHA-256 Crypt
+Sybase ASE
+SHA-512 Crypt
+Minecraft(AuthMe Reloaded)
+Django(SHA-256)
+Django(SHA-384)
+Clavister Secure Gateway
+Cisco VPN Client(PCF-File)
+Microsoft MSTSC(RDP-File)
+NetNTLMv1-VANILLA / NetNTLMv1+ESS
+NetNTLMv2
+Kerberos 5 AS-REQ Pre-Auth
+SCRAM Hash
+Redmine Project Management Web App
+SAP CODVN B (BCODE)
+SAP CODVN F/G (PASSCODE)
+Juniper Netscreen/SSG(ScreenOS)
+EPi
+SMF ≥ v1.1
+Woltlab Burning Board 3.x
+IPMI2 RAKP HMAC-SHA1
+Lastpass
+Cisco-ASA(MD5)
+VNC
+DNSSEC(NSEC3)
+RACF
+NTHash(FreeBSD Variant)
+SHA-1 Crypt
+hMailServer
+MediaWiki
+Minecraft(xAuth)
+PBKDF2-SHA1(Generic)
+PBKDF2-SHA256(Generic)
+PBKDF2-SHA512(Generic)
+PBKDF2(Cryptacular)
+PBKDF2(Dwayne Litzenberger)
+Fairly Secure Hashed Password
+PHPS
+1Password(Agile Keychain)
+1Password(Cloud Keychain)
+IKE-PSK MD5
+IKE-PSK SHA1
+PeopleSoft
+Django(DES Crypt Wrapper)
+Django(PBKDF2-HMAC-SHA256)
+Django(PBKDF2-HMAC-SHA1)
+Django(bcrypt)
+Django(MD5)
+PBKDF2(Atlassian)
+PostgreSQL MD5
+Lotus Notes/Domino 8
+scrypt
+Cisco Type 8
+Cisco Type 9
+Microsoft Office 2007
+Microsoft Office 2010
+Microsoft Office 2013
+Android FDE ≤ 4.3
+Microsoft Office ≤ 2003 (MD5+RC4)
+Microsoft Office ≤ 2003 (MD5+RC4) collider-mode #1
+Microsoft Office ≤ 2003 (MD5+RC4) collider-mode #2
+Microsoft Office ≤ 2003 (SHA1+RC4)
+Microsoft Office ≤ 2003 (SHA1+RC4) collider-mode #1
+Microsoft Office ≤ 2003 (SHA1+RC4) collider-mode #2
+RAdmin v2.x
+SAP CODVN H (PWDSALTEDHASH) iSSHA-1
+CRAM-MD5
+SipHash
+Cisco Type 7
+BigCrypt
+Cisco Type 4
+Django(bcrypt-SHA256)
+PostgreSQL Challenge-Response Authentication (MD5)
+Siemens-S7
+Microsoft Outlook PST
+PBKDF2-HMAC-SHA256(PHP)
+Dahua
+MySQL Challenge-Response Authentication (SHA1)
+PDF 1.4 - 1.6 (Acrobat 5 - 8)

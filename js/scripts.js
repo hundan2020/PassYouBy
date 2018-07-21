@@ -41,8 +41,9 @@ var EncryptIdentify = {
             resArr[n++] = eval('this.encryptType.' + i);
         }
         for (let i of resArr) {
-            console.log(i.name);
+            // console.log(i.name);
         }
+        return resArr;
 
 
         // 注意去除头尾的空白字符并提示

@@ -1,4 +1,4 @@
-<html lang="zh-cn">
+<html lang="zh-cmn-Hans">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -23,7 +23,9 @@
             </div>
             <div class="col-md-8 col-centered">
                 <div class="input-group">
-                    <input type="text" class="form-control input-lg" placeholder="思念是一种病"><span class="input-group-addon btn btn-info">Search</span>
+                    <input type="text" class="form-control input-lg" id="pass-me" placeholder="PassYouBy"><span class="input-group-addon btn btn-info" id="find">SayHi</span>
+                </div>
+                <div class="pt-3" id="show-type">
                 </div>
             </div>
             <div class="col-md-2">
@@ -31,7 +33,35 @@
         </div>
     </div>
     <script src="js/jquery.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/tether.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/scripts.js"></script>
+    <script>
+    	$(function(){
+    		let showType = function(type){
+    			let typeNode = $("#show-type").append("<span class=\"badge badge-primary ml-2 mt-2\">" + type + "</span>");
+    		}
+    		let clearType = function(){
+    			$("#show-type").empty();
+    		}
+    		$("#find").click(function(){
+    			clearType();
+    			let passMe = $("#pass-me").val();
+    			let type = EncryptIdentify.identify(passMe);
+    			for(let n of type){
+    				showType(n.name);
+    			}
+    			// console.log(type);
+    			// showType(type);
+    			// alert(type);
+    			// console.clear();
+    			// console.log(type);
+
+    			// alert(1);
+    		});
+    	});
+
+    </script>
 </body>
 </html>

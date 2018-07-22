@@ -1417,17 +1417,17 @@ var EncryptIdentify = {
         },
         // 下面的开始全部使用ignore case 模式了 因为实在太麻烦了
         idGroup80 = function(str) {
-            return str.match(/^[^\\\/:*?"<>|]{1,20}[:]{2,3}([^\\\/:*?"<>|]{1,20})?:[a-f0-9]{48}:[a-f0-9]{48}:[a-f0-9]{16}$/i) ? [
+            return str.match(/^[^\\\/:*?"<>|]{1,20}[:]{2,3}([^\\\/:*?"<>|]{1,20})?:(?:[a-f0-9]{48}:[a-f0-9]{48}:[a-f0-9]{16}|[A-F0-9]{48}:[A-F0-9]{48}:[A-F0-9]{16})$/) ? [
                 'NETNTLMV1_VANILLA_OR_NETNTLMV1_ADD_ESS',
             ] : false;
         },
         idGroup81 = function(str) {
-            return str.match(/^([^\\\/:*?"<>|]{1,20}\\)?[^\\\/:*?"<>|]{1,20}[:]{2,3}([^\\\/:*?"<>|]{1,20}:)?[^\\\/:*?"<>|]{1,20}:[a-f0-9]{32}:[a-f0-9]+$/i) ? [
+            return str.match(/^([^\\\/:*?"<>|]{1,20}\\)?[^\\\/:*?"<>|]{1,20}[:]{2,3}([^\\\/:*?"<>|]{1,20}:)?[^\\\/:*?"<>|]{1,20}:(?:[a-f0-9]{32}:[a-f0-9]+|[A-F0-9]{32}:[A-F0-9]+)$/) ? [
                 'NETNTLMV2',
             ] : false;
         },
         idGroup82 = function(str) {
-            return str.match(/^\$(krb5pa|mskrb5)\$([0-9]{2})?\$.+\$[a-f0-9]{1,}$/i) ? [
+            return str.match(/^\$(krb5pa|KRB5PA|mskrb5|MSKRB5)\$([0-9]{2})?\$.+\$(?:[a-f0-9]{1,}|[A-F0-9]{1,})$/) ? [
                 'KERBEROS_5_AS_REQ_PRE_AUTH',
             ] : false;
         },
@@ -1437,17 +1437,17 @@ var EncryptIdentify = {
             ] : false;
         },
         idGroup84 = function(str) {
-            return str.match(/^[a-f0-9]{40}:[a-f0-9]{0,32}$/i) ? [
+            return str.match(/^(?:[a-f0-9]{40}:[a-f0-9]{0,32}|[A-F0-9]{40}:[A-F0-9]{0,32})$/) ? [
                 'REDMINE_PROJECT_MANAGEMENT_WEB_APP',
             ] : false;
         },
         idGroup85 = function(str) {
-            return str.match(/^(.+)?\$[a-f0-9]{16}$/i) ? [
+            return str.match(/^(.+)?\$(?:[a-f0-9]{16}|[A-F0-9]{16})$/) ? [
                 'SAP_CODVN_B_TO_BCODE',
             ] : false;
         },
         idGroup86 = function(str) {
-            return str.match(/^(.+)?\$[a-f0-9]{40}$/i) ? [
+            return str.match(/^(.+)?\$(?:[a-f0-9]{40}|[A-F0-9]{40})$/) ? [
                 'SAP_CODVN_F_OR_G_TO_PASSCODE',
             ] : false;
         },
@@ -1457,27 +1457,27 @@ var EncryptIdentify = {
             ] : false;
         },
         idGroup88 = function(str) {
-            return str.match(/^0x[a-f0-9]{60}\s0x[a-f0-9]{40}$/i) ? [
+            return str.match(/^0[xX](?:[a-f0-9]{60}|[A-F0-9]{60})\s0[xX](?:[a-f0-9]{40}|[A-F0-9]{40})$/) ? [
                 'EPI',
             ] : false;
         },
         idGroup89 = function(str) {
-            return str.match(/^[a-f0-9]{40}:[^*]{1,25}$/i) ? [
+            return str.match(/^(?:[a-f0-9]{40}|[A-F0-9]{40}):[^*]{1,25}$/) ? [
                 'SMF_OVE_Q_V1_DOT_1',
             ] : false;
         },
         idGroup90 = function(str) {
-            return str.match(/^(\$wbb3\$\*1\*)?[a-f0-9]{40}[:*][a-f0-9]{40}$/i) ? [
+            return str.match(/^(\$(?:wbb3|WBB3)\$\*1\*)?(?:[a-f0-9]{40}[:*][a-f0-9]{40}|[A-F0-9]{40}[:*][A-F0-9]{40})$/) ? [
                 'WOLTLAB_BURNING_BOARD_3_DOT_X',
             ] : false;
         },
         idGroup91 = function(str) {
-            return str.match(/^[a-f0-9]{130}(:[a-f0-9]{40})?$/i) ? [
+            return str.match(/^(?:[a-f0-9]{130}(:[a-f0-9]{40})?|[A-F0-9]{130}(:[A-F0-9]{40})?)$/) ? [
                 'IPMI2_RAKP_HMAC_SHA1',
             ] : false;
         },
         idGroup92 = function(str) {
-            return str.match(/^[a-f0-9]{32}:[0-9]+:[a-z0-9_.+-]+@[a-z0-9-]+\.[a-z0-9-.]+$/i) ? [
+            return str.match(/^(?:[a-f0-9]{32}:[0-9]+|[A-F0-9]{32}:[0-9]+):[a-z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/) ? [
                 'LASTPASS',
             ] : false;
         },
@@ -1487,7 +1487,7 @@ var EncryptIdentify = {
             ] : false;
         },
         idGroup94 = function(str) {
-            return str.match(/^\$vnc\$\*[a-f0-9]{32}\*[a-f0-9]{32}$/i) ? [
+            return str.match(/^\$(?:vnc|VNC)\$\*(?:[a-f0-9]{32}\*[a-f0-9]{32}|[A-F0-9]{32}\*[A-F0-9]{32})$/) ? [
                 'VNC',
             ] : false;
         },
@@ -1497,12 +1497,12 @@ var EncryptIdentify = {
             ] : false;
         },
         idGroup96 = function(str) {
-            return str.match(/^(user-.+:)?\$racf\$\*.+\*[a-f0-9]{16}$/i) ? [
+            return str.match(/^(?:(user-.+:)?\$racf|(USER-.+:)?\$RACF)\$\*.+\*(?:[a-f0-9]{16}|[A-F0-9]{16})$/) ? [
                 'RACF',
             ] : false;
         },
         idGroup97 = function(str) {
-            return str.match(/^\$3\$\$[a-f0-9]{32}$/i) ? [
+            return str.match(/^\$3\$\$(?:[a-f0-9]{32}|[A-F0-9]{32})$/) ? [
                 'NTHASH_TO_FREEBSD_letIANT',
             ] : false;
         },
@@ -1512,17 +1512,17 @@ var EncryptIdentify = {
             ] : false;
         },
         idGroup99 = function(str) {
-            return str.match(/^[a-f0-9]{70}$/i) ? [
+            return str.match(/^(?:[a-f0-9]{70}|[A-F0-9]{70})$/) ? [
                 'HMAILSERVER',
             ] : false;
         },
         idGroup100 = function(str) {
-            return str.match(/^[:\$][AB][:\$]([a-f0-9]{1,8}[:\$])?[a-f0-9]{32}$/i) ? [
+            return str.match(/^[:\$][ABab][:\$](?:([a-f0-9]{1,8}[:\$])?[a-f0-9]{32}|([A-F0-9]{1,8}[:\$])?[A-F0-9]{32})$/) ? [
                 'MEDIAWIKI',
             ] : false;
         },
         idGroup101 = function(str) {
-            return str.match(/^[a-f0-9]{140}$/i) ? [
+            return str.match(/^(?:[a-f0-9]{140}|[A-F0-9]{140})$/) ? [
                 'MINECRAFT_TO_XAUTH',
             ] : false;
         },
@@ -1557,27 +1557,27 @@ var EncryptIdentify = {
             ] : false;
         },
         idGroup108 = function(str) {
-            return str.match(/^\$PHPS\$.+\$[a-f0-9]{32}$/i) ? [
+            return str.match(/^\$(PHPS|phps)\$.+\$([a-f0-9]{32}|[A-F0-9]{32})$/) ? [
                 'PHPS',
             ] : false;
         },
         idGroup109 = function(str) {
-            return str.match(/^[0-9]{4}:[a-f0-9]{16}:[a-f0-9]{2080}$/i) ? [
+            return str.match(/^[0-9]{4}:(?:[a-f0-9]{16}:[a-f0-9]{2080}|[A-F0-9]{16}:[A-F0-9]{2080})$/) ? [
                 'X1PASSWORD_TO_AGILE_KEYCHAIN',
             ] : false;
         },
         idGroup110 = function(str) {
-            return str.match(/^[a-f0-9]{64}:[a-f0-9]{32}:[0-9]{5}:[a-f0-9]{608}$/i) ? [
+            return str.match(/^(?:[a-f0-9]{64}:[a-f0-9]{32}:[0-9]{5}:[a-f0-9]{608}|[A-F0-9]{64}:[A-F0-9]{32}:[0-9]{5}:[A-F0-9]{608})$/) ? [
                 'X1PASSWORD_TO_CLOUD_KEYCHAIN',
             ] : false;
         },
         idGroup111 = function(str) {
-            return str.match(/^[a-f0-9]{256}:[a-f0-9]{256}:[a-f0-9]{16}:[a-f0-9]{16}:[a-f0-9]{320}:[a-f0-9]{16}:[a-f0-9]{40}:[a-f0-9]{40}:[a-f0-9]{32}$/i) ? [
+            return str.match(/^(?:[a-f0-9]{256}:[a-f0-9]{256}:[a-f0-9]{16}:[a-f0-9]{16}:[a-f0-9]{320}:[a-f0-9]{16}:[a-f0-9]{40}:[a-f0-9]{40}:[a-f0-9]{32}|[A-F0-9]{256}:[A-F0-9]{256}:[A-F0-9]{16}:[A-F0-9]{16}:[A-F0-9]{320}:[A-F0-9]{16}:[A-F0-9]{40}:[A-F0-9]{40}:[A-F0-9]{32})$/) ? [
                 'IKE_PSK_MD5',
             ] : false;
         },
         idGroup112 = function(str) {
-            return str.match(/^[a-f0-9]{256}:[a-f0-9]{256}:[a-f0-9]{16}:[a-f0-9]{16}:[a-f0-9]{320}:[a-f0-9]{16}:[a-f0-9]{40}:[a-f0-9]{40}:[a-f0-9]{40}$/i) ? [
+            return str.match(/^(?:[a-f0-9]{256}:[a-f0-9]{256}:[a-f0-9]{16}:[a-f0-9]{16}:[a-f0-9]{320}:[a-f0-9]{16}:[a-f0-9]{40}:[a-f0-9]{40}:[a-f0-9]{40}|[A-F0-9]{256}:[A-F0-9]{256}:[A-F0-9]{16}:[A-F0-9]{16}:[A-F0-9]{320}:[A-F0-9]{16}:[A-F0-9]{40}:[A-F0-9]{40}:[A-F0-9]{40})$/) ? [
                 'IKE_PSK_SHA1',
             ] : false;
         },
@@ -1587,7 +1587,7 @@ var EncryptIdentify = {
             ] : false;
         },
         idGroup114 = function(str) {
-            return str.match(/^crypt\$[a-f0-9]{5}\$[a-z0-9\/.]{13}$/i) ? [
+            return str.match(/^(?:crypt|CRYPT)\$(?:[a-f0-9]{5}|[A-F0-9]{5})\$[a-zA-Z0-9\/.]{13}$/) ? [
                 'DJANGO_TO_DES_CRYPT_WRAPPER',
             ] : false;
         },
@@ -1607,7 +1607,7 @@ var EncryptIdentify = {
             ] : false;
         },
         idGroup118 = function(str) {
-            return str.match(/^md5\$[a-f0-9]+\$[a-f0-9]{32}$/i) ? [
+            return str.match(/^(?:md5|MD5)\$(?:[a-f0-9]+\$[a-f0-9]{32}|[A-F0-9]+\$[A-F0-9]{32})$/) ? [
                 'DJANGO_TO_MD5',
             ] : false;
         },
@@ -1617,7 +1617,7 @@ var EncryptIdentify = {
             ] : false;
         },
         idGroup120 = function(str) {
-            return str.match(/^md5[a-f0-9]{32}$/i) ? [
+            return str.match(/^(?:md5|MD5)(?:[a-f0-9]{32}|[A-F0-9]{32})$/) ? [
                 'POSTGRESQL_MD5',
             ] : false;
         },
@@ -1657,26 +1657,26 @@ var EncryptIdentify = {
             ] : false;
         },
         idGroup128 = function(str) {
-            return str.match(/^\$fde\$[0-9]{2}\$[a-f0-9]{32}\$[0-9]{2}\$[a-f0-9]{32}\$[a-f0-9]{3072}$/i) ? [
+            return str.match(/^\$(?:fde|FDE)\$[0-9]{2}\$(?:[a-f0-9]{32}|[A-F0-9]{32})\$[0-9]{2}\$(?:[a-f0-9]{32}\$[a-f0-9]{3072}|[A-F0-9]{32}\$[A-F0-9]{3072})$/) ? [
                 'ANDROID_FDE_UND_Q_4_DOT_3',
             ] : false;
         },
         idGroup129 = function(str) {
-            return str.match(/^\$oldoffice\$[01]\*[a-f0-9]{32}\*[a-f0-9]{32}\*[a-f0-9]{32}$/i) ? [
+            return str.match(/^\$(?:oldoffice|OLDOFFICE)\$[01]\*(?:[a-f0-9]{32}\*[a-f0-9]{32}\*[a-f0-9]{32}|[A-F0-9]{32}\*[A-F0-9]{32}\*[A-F0-9]{32})$/) ? [
                 'MICROSOFT_OFFICE_UND_Q_2003_TO_MD5_ADD_RC4',
                 'MICROSOFT_OFFICE_UND_Q_2003_TO_MD5_ADD_RC4_COLLIDER_MODE_SHARP_1',
                 'MICROSOFT_OFFICE_UND_Q_2003_TO_MD5_ADD_RC4_COLLIDER_MODE_SHARP_2',
             ] : false;
         },
         idGroup130 = function(str) {
-            return str.match(/^\$oldoffice\$[34]\*[a-f0-9]{32}\*[a-f0-9]{32}\*[a-f0-9]{40}$/i) ? [
+            return str.match(/^\$(?:oldoffice|OLDOFFICE)\$[34]\*(?:[a-f0-9]{32}\*[a-f0-9]{32}\*[a-f0-9]{40}|[A-F0-9]{32}\*[A-F0-9]{32}\*[A-F0-9]{40})$/) ? [
                 'MICROSOFT_OFFICE_UND_Q_2003_TO_SHA1_ADD_RC4',
                 'MICROSOFT_OFFICE_UND_Q_2003_TO_SHA1_ADD_RC4_COLLIDER_MODE_SHARP_1',
                 'MICROSOFT_OFFICE_UND_Q_2003_TO_SHA1_ADD_RC4_COLLIDER_MODE_SHARP_2',
             ] : false;
         },
         idGroup131 = function(str) {
-            return str.match(/^(\$radmin2\$)?[a-f0-9]{32}$/i) ? [
+            return str.match(/^(\$(?:radmin2|RADMIN2)\$)?(?:[a-f0-9]{32}|[A-F0-9]{32})$/) ? [
                 'RADMIN_V2_DOT_X',
             ] : false;
         },
@@ -1691,12 +1691,12 @@ var EncryptIdentify = {
             ] : false;
         },
         idGroup134 = function(str) {
-            return str.match(/^[a-f0-9]{16}:2:4:[a-f0-9]{32}$/i) ? [
+            return str.match(/^(?:[a-f0-9]{16}:2:4:[a-f0-9]{32}|[A-F0-9]{16}:2:4:[A-F0-9]{32})$/) ? [
                 'SIPHASH',
             ] : false;
         },
         idGroup135 = function(str) {
-            return str.match(/^[a-f0-9]{4,}$/i) ? [
+            return str.match(/^(?:[a-f0-9]{4,}|[A-F0-9]{4,})$/) ? [
                 'CISCO_TYPE_7',
             ] : false;
         },
@@ -1716,17 +1716,17 @@ var EncryptIdentify = {
             ] : false;
         },
         idGroup139 = function(str) {
-            return str.match(/^\$postgres\$.[^\*]+[*:][a-f0-9]{1,32}[*:][a-f0-9]{32}$/i) ? [
+            return str.match(/^\$(?:postgres|POSTGRES)\$.[^\*]+[*:](?:[a-f0-9]{1,32}[*:][a-f0-9]{32}|[A-F0-9]{1,32}[*:][A-F0-9]{32})$/) ? [
                 'POSTGRESQL_CHALLENGE_RESPONSE_AUTHENTICATION_TO_MD5',
             ] : false;
         },
         idGroup140 = function(str) {
-            return str.match(/^\$siemens-s7\$[0-9]{1}\$[a-f0-9]{40}\$[a-f0-9]{40}$/i) ? [
+            return str.match(/^\$(?:siemens-s7|SIEMENS-S7)\$[0-9]{1}\$(?:[a-f0-9]{40}\$[a-f0-9]{40}|[A-F0-9]{40}\$[A-F0-9]{40})$/) ? [
                 'SIEMENS_S7',
             ] : false;
         },
         idGroup141 = function(str) {
-            return str.match(/^(\$pst\$)?[a-f0-9]{8}$/i) ? [
+            return str.match(/^(\$(?:pst|PST)\$)?(?:[a-f0-9]{8}|[A-F0-9]{8})$/) ? [
                 'MICROSOFT_OUTLOOK_PST',
             ] : false;
         },
@@ -1741,12 +1741,12 @@ var EncryptIdentify = {
             ] : false;
         },
         idGroup144 = function(str) {
-            return str.match(/^\$mysqlna\$[a-f0-9]{40}[:*][a-f0-9]{40}$/i) ? [
+            return str.match(/^\$(?:mysqlna|MYSQLNA)\$(?:[a-f0-9]{40}[:*][a-f0-9]{40}|[A-F0-9]{40}[:*][A-F0-9]{40})$/) ? [
                 'MYSQL_CHALLENGE_RESPONSE_AUTHENTICATION_TO_SHA1',
             ] : false;
         },
         idGroup145 = function(str) {
-            return str.match(/^\$pdf\$[24]\*[34]\*128\*[0-9-]{1,5}\*1\*(16|32)\*[a-f0-9]{32,64}\*32\*[a-f0-9]{64}\*(8|16|32)\*[a-f0-9]{16,64}$/i) ? [
+            return str.match(/^\$(?:pdf|PDF)\$[24]\*[34]\*128\*[0-9-]{1,5}\*1\*(16|32)\*(?:[a-f0-9]{32,64}\*32\*[a-f0-9]{64}\*(8|16|32)\*[a-f0-9]{16,64}|[A-F0-9]{32,64}\*32\*[A-F0-9]{64}\*(8|16|32)\*[A-F0-9]{16,64})$/) ? [
                 'PDF_1_DOT_4_1_DOT_6_TO_ACROBAT_5_8',
             ] : false;
         },

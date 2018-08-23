@@ -1,34 +1,18 @@
 let EncryptIdentify = {
-    /*
-        代码参考了 https://github.com/psypanda/hashID/blob/master/hashid.py
-    */
-
     /**
      * 通用密文串类型检查，包括encode，encrypt，hash
      * 以准确度和精确度来换取hash类型数量
      * @param  {string} str 要检查的字符串
      * @return {object|boolean}     成功返回对象，失败返回false
      */
-    identify: function(str) {
-        // 先写个demo，能用就行，后面再慢慢改
-        let password = str + '', todo, resTmp, result = [];
-        let addslashes = function(string){
-            return string.replace(/\\/g, '\\\\').replace(/'/g, '\\\'');
-        }
-        for (let i in this.idGroup) {
-            todo = 'this.idGroup[' + i + '](\'' + addslashes(password) + '\')';
-            resTmp = eval(todo);
-            resTmp && (result = result.concat(resTmp));
-        }
-        let n = 0, resArr = [];
-        for (let i of result) {
-            resArr[n++] = eval('this.encryptType.' + i);
-        }
-        for (let i of resArr) {
-            // console.log(i.name);
-        }
-        return resArr;
-
+    identify: function(str, ...param) {
+        // 多参数传参还未实现
+        let password = str + '', resTmp, result = [];
+        Object.keys(EncryptIdentify.encryptType).forEach(function(key){
+            resTmp = EncryptIdentify.encryptType[key].checker(password);
+            resTmp && (result = result.concat(EncryptIdentify.encryptType[key]));
+        });
+        return result;
 
         // 注意去除头尾的空白字符并提示
         // 检测非可见字符并提示，以免误判
@@ -94,8 +78,9 @@ let EncryptIdentify = {
             checker: function(str, t='qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM0123456789+/', p='=') {
                 if (str.length % 4 == 0) { // base64 MIME must be mod by 4
                     return str.match(new RegExp('^[' + t + ']+' + p + '{0,2}$')) ? true : false;
+                }else{
+                    return false;
                 }
-                return false;
             },
             ref: 'https://zh.wikipedia.org/wiki/Base64'
         },
@@ -114,8 +99,12 @@ let EncryptIdentify = {
             minR: 1,
             maxR: 3,
             name: 'base64 IRCu',
-            checker: function(str, t='qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM0123456789[]', p='=') {
-                return str.match(new RegExp('^[' + t + ']+' + p + '{0,2}$')) ? true : false;
+            checker: function(str, t='qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM0123456789\\\[\\\]', p='=') {
+                if (str.length % 4 == 0) { // standard base64, length  must be mod by 4
+                    return str.match(new RegExp('^[' + t + ']+' + p + '{0,2}$')) ? true : false;
+                }else{
+                    return false;
+                }
             },
             ref: 'https://zh.wikipedia.org/wiki/Base64'
         },
@@ -145,7 +134,11 @@ let EncryptIdentify = {
             maxR: 3,
             name: 'base32',
             checker: function(str, t='ABCDEFGHIJKLMNOPQRSTUVWXYZ234567', p='=') {
-                return str.match(new RegExp('^[' + t + ']+' + p + '{0,2}$')) ? true : false;
+                if (str.length % 8 == 0) {
+                    return str.match(new RegExp('^[' + t + ']+' + p + '{0,6}$')) ? true : false;
+                }else{
+                    return false;
+                }
             },
             ref: 'https://en.wikipedia.org/wiki/Base32'
         },
@@ -155,7 +148,11 @@ let EncryptIdentify = {
             maxR: 3,
             name: 'z-base-32',
             checker: function(str, t='ybndrfg8ejkmcpqxot1uwisza345h769', p='=') {
-                return str.match(new RegExp('^[' + t + ']+' + p + '{0,2}$')) ? true : false;
+                if (str.length % 8 == 0) {
+                    return str.match(new RegExp('^[' + t + ']+' + p + '{0,6}$')) ? true : false;
+                }else{
+                    return false;
+                }
             },
             ref: 'https://en.wikipedia.org/wiki/Base32'
         },
@@ -165,8 +162,12 @@ let EncryptIdentify = {
             maxR: 3,
             name: 'Crockford\'s Base32',
             checker: function(str, t='0123456789ABCDEFGHJKMNPQRSTVWXYZ', p='=') {
-                str = str.replace(/0o/ig, '0').replace(/1il/ig, '1').toUpperCase();
-                return str.match(new RegExp('^[' + t + ']+' + p + '{0,2}$')) ? true : false;
+                if (str.length % 8 == 0) {
+                    str = str.replace(/0o/ig, '0').replace(/1il/ig, '1').toUpperCase();
+                    return str.match(new RegExp('^[' + t + ']+' + p + '{0,6}$')) ? true : false;
+                }else{
+                    return false;
+                }
             },
             ref: 'https://en.wikipedia.org/wiki/Base32'
         },
@@ -176,7 +177,11 @@ let EncryptIdentify = {
             maxR: 2,
             name: 'base16(hex)',
             checker: function(str, t='0123456789ABCDEF') {
-                return str.match(new RegExp('^[' + t + ']+' + '$')) ? true : false;
+                if (str.length % 2 == 0) { // standard hex length must be multiple of 2, from 00 to ff for each character
+                    return str.match(new RegExp('^[' + t + ']+' + '$')) ? true : false;
+                }else{
+                    return false;
+                }
             },
             ref: 'https://en.wikipedia.org/wiki/Base16'
         },

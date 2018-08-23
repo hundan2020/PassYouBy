@@ -149,6 +149,37 @@ let EncryptIdentify = {
             },
             ref: 'https://en.wikipedia.org/wiki/Base32'
         },
+        base32_z: {
+            type: 1,
+            minR: 1,
+            maxR: 3,
+            name: 'z-base-32',
+            checker: function(str, t='ybndrfg8ejkmcpqxot1uwisza345h769', p='=') {
+                return str.match(new RegExp('^[' + t + ']+' + p + '{0,2}$')) ? true : false;
+            },
+            ref: 'https://en.wikipedia.org/wiki/Base32'
+        },
+        base32_Crockford: {
+            type: 1,
+            minR: 1,
+            maxR: 3,
+            name: 'Crockford\'s Base32',
+            checker: function(str, t='0123456789ABCDEFGHJKMNPQRSTVWXYZ', p='=') {
+                str = str.replace(/0o/ig, '0').replace(/1il/ig, '1').toUpperCase();
+                return str.match(new RegExp('^[' + t + ']+' + p + '{0,2}$')) ? true : false;
+            },
+            ref: 'https://en.wikipedia.org/wiki/Base32'
+        },
+        base16: {
+            type: 1,
+            minR: 1,
+            maxR: 2,
+            name: 'base16(hex)',
+            checker: function(str, t='0123456789ABCDEF') {
+                return str.match(new RegExp('^[' + t + ']+' + '$')) ? true : false;
+            },
+            ref: 'https://en.wikipedia.org/wiki/Base16'
+        },
     },
 
 
